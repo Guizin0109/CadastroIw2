@@ -1,69 +1,97 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Visualizar Usuários</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Federados</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      background-color: #b50000;
+    }
+
+    .navbar-brand {
+      color: white;
+      font-weight: bold;
+    }
+
+    .navbar-brand:hover,
+    .nav-link:hover {
+      color: #ddd;
+    }
+
+    h2 {
+      color: #b50000;
+      margin-bottom: 20px;
+    }
+
+    .table thead {
+      background-color: #b50000;
+      color: white;
+    }
+  </style>
 </head>
-<body class="bg-light">
+<body>
 
-<div class="container mt-4">
-  <h2 class="mb-4">Cadastrar Carros</h2>
+  <nav class="navbar p-2">
+    <div class="container">
+      <a class="navbar-brand" href="#">Federação de Voleibol</a>
+    </div>
+  </nav>
 
-  <form class="row g-2 mb-3">
-    <input type="hidden" id="id">
+  <div class="container mt-4">
+    <h2>Cadastrar Federado</h2>
 
-    <div class="col-md-2">
-      <input type="text" id="login" class="form-control" placeholder="Acesso">
+    <form class="row g-2 mb-3">
+      <input type="hidden" id="id">
+
+      <div class="col-md-3">
+        <input type="text" id="login" class="form-control" placeholder="Acesso">
+      </div>
+
+      <div class="col-md-4">
+        <input type="text" id="nome" class="form-control" placeholder="Nome">
+      </div>
+
+      <div class="col-md-3">
+        <select id="ativo" class="form-select">
+          <option value="1" selected>Ativo</option>
+          <option value="0">Inativo</option>
+        </select>
+      </div>
+
+      <div class="col-md-2 d-grid">
+        <button type="button" class="btn btn-danger" onclick="salvar()">Salvar</button>
+      </div>
+    </form>
+
+    <div class="mb-3 d-flex gap-2">
+      <input type="text" id="pesquisa" class="form-control" placeholder="Pesquisar por nome...">
+      <button class="btn btn-outline-dark" onclick="carregarPesquisa()">Pesquisar</button>
+      <button class="btn btn-secondary" onclick="carregar()">Listar Todos</button>
     </div>
 
-    <div class="col-md-2">
-      <input type="text" id="nome" class="form-control" placeholder="Nome">
+    <div class="table-responsive">
+      <table class="table table-bordered align-middle">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Acesso</th>
+            <th>Nome</th>
+            <th>Ativo</th>
+            <th class="text-center">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
     </div>
-
-    <div class="col-md-2">
-      <input type="email" id="email" class="form-control" placeholder="Marca">
-    </div>
-
-    <div class="col-md-2">
-      <input type="password" id="senha" class="form-control" placeholder="Chave">
-    </div>
-
-    <div class="col-md-2">
-      <select id="ativo" class="form-select">
-        <option value="1" selected>Sim</option>
-        <option value="0">Não</option>
-      </select>
-    </div>
-
-    <div class="col-md-12 d-flex flex-wrap gap-2 mt-2">
-      <button type="button" class="btn btn-success" onclick="salvar()">Salvar</button>
-      <button type="reset" class="btn btn-secondary" onclick="limpar()">Cancelar</button>
-      <button type="button" class="btn btn-outline-dark" onclick="carregar()">Listar Geral</button>
-
-      <input type="text" id="pesquisa" class="form-control w-auto" placeholder="Pesquisar...">
-      <button type="button" class="btn btn-primary" onclick="carregarPesquisa()">Pesquisar</button>
-    </div>
-  </form>
-
-  <div class="table-responsive">
-    <table id="tabela" class="table table-bordered table-striped align-middle">
-      <thead class="table-dark">
-        <tr>
-          <th>ID</th>
-          <th>Acesso</th>
-          <th>Nome</th>
-          <th>Marca</th>
-          <th>Ativo</th>
-          <th class="text-center">Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
   </div>
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>

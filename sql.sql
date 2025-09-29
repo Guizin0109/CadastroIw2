@@ -8,7 +8,7 @@ CREATE TABLE `usuarios` (
 );
 
 INSERT INTO `usuarios` (`LOGIN`, `NOME`, `EMAIL`, `SENHA`, `ATIVO`) VALUES 
-('Caio', 'Caio Eduardo Ferrari Miranda', 'ferraricaio066@gmail.com', 'carro', b'1');
+('Guilherme', 'Guilherme Silva Lacerda', 'silvagui.lacerda@gmail.com', 'eu123', b'1');
 
 
 
